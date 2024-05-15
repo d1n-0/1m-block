@@ -31,7 +31,6 @@ bool is_malicious_host(char *http_request_header, std::unordered_set<std::string
     char *line = strtok(http_request_header, "\r\n");
     while (line != NULL) {
         if (!strncasecmp(line, "Host: ", 6)) {
-            printf("%s\n", line);
             if (data.find(std::string(line + 6)) != data.end()) {
                 return true;
             }

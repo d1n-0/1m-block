@@ -43,7 +43,7 @@ static int cb(struct nfq_q_handle *qh, struct nfgenmsg *nfmsg,
 #ifdef TEST
         end = std::chrono::steady_clock::now();
         duration = std::chrono::duration_cast<std::chrono::microseconds> (end - begin).count();
-        printf("%lf[s] for loading data\n", duration / 1000000.0);
+        printf("%lf[s] for searching host\n", duration / 1000000.0);
 #endif
 		printf("Malicious host detected\n");
 		return nfq_set_verdict(qh, id, NF_DROP, 0, NULL);
@@ -51,7 +51,7 @@ static int cb(struct nfq_q_handle *qh, struct nfgenmsg *nfmsg,
 #ifdef TEST
     end = std::chrono::steady_clock::now();
     duration = std::chrono::duration_cast<std::chrono::microseconds> (end - begin).count();
-    printf("%lf[s] for loading data\n", duration / 1000000.0);
+    printf("%lf[s] for searching host\n", duration / 1000000.0);
 #endif
 	return nfq_set_verdict(qh, id, NF_ACCEPT, 0, NULL);
 }
